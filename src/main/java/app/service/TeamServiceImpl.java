@@ -2,7 +2,7 @@ package app.service;
 
 import app.RestApp;
 import app.client.ClientProvider;
-import app.resource.Team;
+import app.resource.model.Team;
 import com.fasterxml.jackson.core.type.TypeReference;
 
 import javax.enterprise.context.ApplicationScoped;

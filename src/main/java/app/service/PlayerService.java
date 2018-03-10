@@ -1,6 +1,6 @@
 package app.service;
 
-import app.resource.Player;
+import app.resource.model.Player;
 
 import java.io.IOException;
 import java.util.List;

@@ -2,8 +2,8 @@ package app.service;
 
 import app.RestApp;
 import app.client.ClientProvider;
-import app.resource.Player;
-import app.resource.Team;
+import app.resource.model.Player;
+import app.resource.PlayerDetails;
 import com.fasterxml.jackson.core.type.TypeReference;
 
 import javax.inject.Inject;
@@ -23,7 +23,17 @@ public class PlayerServiceImpl implements PlayerService {
   @Override
   public List<Player> getPlayersByTeamId(Long teamId) throws IOException {
     final String json = clientProvider.get(String.format("https://api.opendota.com/api/teams/%s/players", teamId));
-    List<Player> players = RestApp.getMapper().readValue(json, new TypeReference<List<Player>>() {});
-    return players.stream().filter(p -> Boolean.TRUE.equals(p.getCurrentTeamMember())).collect(Collectors.toList());
+    List<Player> players = (RestApp.getMapper().readValue(json, new TypeReference<List<Player>>() {}));
+    players = players.stream().filter(p -> Boolean.TRUE.equals(p.getCurrentTeamMember())).collect(Collectors.toList());
+    players.forEach(p -> {
+        try {
+        final String detailsJson = clientProvider.get(String.format("https://api.opendota.com/api/players/%s", p.getAccountId()));
+            PlayerDetails details = (RestApp.getMapper().readValue(detailsJson, PlayerDetails.class));
+            p.setDetails(details);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    });
+    return players;
   }
 }

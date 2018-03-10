@@ -1,6 +1,6 @@
 package app.repository;
 
-import app.resource.Team;
+import app.resource.model.Team;
 import app.service.TeamService;
 import io.crnk.core.queryspec.QuerySpec;
 import io.crnk.core.repository.ResourceRepositoryV2;

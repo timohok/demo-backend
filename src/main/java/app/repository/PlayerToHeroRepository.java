@@ -1,7 +1,7 @@
 package app.repository;
 
-import app.resource.Hero;
-import app.resource.Player;
+import app.resource.model.Hero;
+import app.resource.model.Player;
 import app.service.HeroService;
 import io.crnk.core.queryspec.QuerySpec;
 import io.crnk.core.repository.RelationshipRepositoryV2;

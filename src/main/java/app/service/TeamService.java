@@ -1,6 +1,6 @@
 package app.service;
 
-import app.resource.Team;
+import app.resource.model.Team;
 
 import java.io.IOException;
 import java.util.List;

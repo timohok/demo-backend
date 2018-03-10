@@ -1,6 +1,6 @@
 package app.service;
 
-import app.resource.Hero;
+import app.resource.model.Hero;
 
 import java.io.IOException;
 import java.util.List;

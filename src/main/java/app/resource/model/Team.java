@@ -1,4 +1,4 @@
-package app.resource;
+package app.resource.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.crnk.core.resource.annotations.JsonApiId;

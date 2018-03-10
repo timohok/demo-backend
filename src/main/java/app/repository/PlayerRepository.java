@@ -1,6 +1,6 @@
 package app.repository;
 
-import app.resource.Player;
+import app.resource.model.Player;
 import app.service.PlayerService;
 import io.crnk.core.queryspec.QuerySpec;
 import io.crnk.core.repository.ResourceRepositoryV2;
