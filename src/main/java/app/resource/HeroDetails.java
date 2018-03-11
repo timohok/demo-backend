@@ -8,6 +8,7 @@ public class HeroDetails {
 
     @JsonProperty("hero_id")
     private String id;
+
     private long games;
     private long win;
 

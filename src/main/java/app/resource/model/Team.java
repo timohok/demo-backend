@@ -12,6 +12,8 @@ import java.util.List;
 @JsonApiResource(type = "teams")
 public class Team {
 
+    @JsonApiRelation(lookUp = LookupIncludeBehavior.AUTOMATICALLY_WHEN_NULL)
+    List<Player> players = new ArrayList<>();
     @JsonApiId
     @JsonProperty("team_id")
     private Long teamId;
@@ -22,9 +24,6 @@ public class Team {
     private Long lastMatchTime;
     private String name;
     private String tag;
-
-    @JsonApiRelation(lookUp = LookupIncludeBehavior.AUTOMATICALLY_WHEN_NULL)
-    List<Player> players = new ArrayList<>();
 
     public Long getTeamId() {
         return teamId;

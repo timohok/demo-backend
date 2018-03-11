@@ -20,18 +20,13 @@ public class ClientProvider {
 
         if (url != null && !url.isEmpty()) {
 
-            Request request = new Request.Builder()
-                    .url(url)
-                    .build();
+            Request request = new Request.Builder().url(url).build();
 
             try (Response response = client.newCall(request).execute()) {
                 result = response.body().string();
             }
-
         }
 
         return result;
-
     }
-
 }

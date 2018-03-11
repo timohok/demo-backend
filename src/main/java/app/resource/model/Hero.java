@@ -1,7 +1,6 @@
 package app.resource.model;
 
 import app.resource.HeroDetails;
-import app.resource.PlayerDetails;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.crnk.core.resource.annotations.JsonApiId;
 import io.crnk.core.resource.annotations.JsonApiResource;
@@ -14,13 +13,18 @@ public class Hero {
     @JsonApiId
     @JsonProperty("id")
     private String id;
+
     private String name;
+
     @JsonProperty("localized_name")
     private String localizedName;
+
     @JsonProperty("primary_attr")
     private String primaryAttr;
+
     @JsonProperty("attack_type")
     private String attackType;
+
     private List<String> roles;
 
     private HeroDetails heroDetails;

@@ -2,15 +2,33 @@ package app.service;
 
 import app.resource.model.Hero;
 
-import java.io.IOException;
 import java.util.List;
 
 public interface HeroService {
 
-  Hero getHero(String id) throws IOException;
+    /**
+     * Get hero by id
+     *
+     * @param id
+     * @return
+     * @throws ServiceException
+     */
+    Hero getHero(String id) throws ServiceException;
 
-  List<Hero> getHeroes() throws IOException;
+    /**
+     * Get all heroes
+     *
+     * @return
+     * @throws ServiceException
+     */
+    List<Hero> getHeroes() throws ServiceException;
 
-  List<Hero> getHeroesByPlayerId(String playerId) throws IOException;
-
+    /**
+     * Get heroes by player id
+     *
+     * @param playerId
+     * @return
+     * @throws ServiceException
+     */
+    List<Hero> getHeroesByPlayerId(String playerId) throws ServiceException;
 }

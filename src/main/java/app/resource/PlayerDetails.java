@@ -14,5 +14,4 @@ public class PlayerDetails {
     public void setMmr(String mmr) {
         this.mmr = mmr;
     }
-
 }

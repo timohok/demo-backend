@@ -13,6 +13,8 @@ import java.util.List;
 @JsonApiResource(type = "players")
 public class Player {
 
+    @JsonApiRelation(lookUp = LookupIncludeBehavior.AUTOMATICALLY_WHEN_NULL)
+    public List<Hero> heroes = new ArrayList<>();
     @JsonApiId
     @JsonProperty("account_id")
     private String accountId;
@@ -20,9 +22,6 @@ public class Player {
     @JsonProperty("is_current_team_member")
     private Boolean currentTeamMember;
     private PlayerDetails details;
-
-    @JsonApiRelation(lookUp = LookupIncludeBehavior.AUTOMATICALLY_WHEN_NULL)
-    public List<Hero> heroes = new ArrayList<>();
 
     public String getAccountId() {
         return accountId;

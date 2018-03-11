@@ -12,17 +12,17 @@ import java.util.Set;
 @ApplicationPath("/api")
 public class RestApp extends Application {
 
-  static final ObjectMapper mapper =
-      new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+    static final ObjectMapper mapper =
+            new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
-  @Override
-  public Set<Class<?>> getClasses() {
-    Set<Class<?>> set = new HashSet<>();
-    set.add(CrnkFeature.class);
-    return set;
-  }
+    public static ObjectMapper getMapper() {
+        return mapper;
+    }
 
-  public static ObjectMapper getMapper() {
-    return mapper;
-  }
+    @Override
+    public Set<Class<?>> getClasses() {
+        Set<Class<?>> set = new HashSet<>();
+        set.add(CrnkFeature.class);
+        return set;
+    }
 }

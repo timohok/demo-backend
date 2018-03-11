@@ -1,14 +1,17 @@
 package app.repository;
 
+import app.JsonApiException;
 import app.resource.model.Player;
 import app.resource.model.Team;
 import app.service.PlayerService;
+import app.service.ServiceException;
 import io.crnk.core.queryspec.QuerySpec;
 import io.crnk.core.repository.RelationshipRepositoryV2;
 import io.crnk.core.resource.list.DefaultResourceList;
 import io.crnk.core.resource.list.ResourceList;
 
 import javax.enterprise.inject.spi.CDI;
+import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,10 +57,9 @@ public class TeamToPlayerRepository implements RelationshipRepositoryV2<Team, Lo
         List<Player> players = new ArrayList<>();
         try {
             players.addAll(CDI.current().select(PlayerService.class).get().getPlayersByTeamId(teamId));
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (ServiceException e) {
+            throw new JsonApiException(Response.Status.NOT_FOUND.getStatusCode(), "1", "Fetching players failed", "Error occurred when fetching players by teamId = " + teamId);
         }
         return new DefaultResourceList<>(players, null, null);
     }
-
 }
